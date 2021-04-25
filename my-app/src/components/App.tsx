@@ -2,12 +2,16 @@ import React from 'react'
 import { hot } from 'react-hot-loader'
 // import './App.css'
 import Budget from './budgets'
+import Collateral from './collateral'
+import Loans from './loans'
 
 const App: React.FC = (): JSX.Element => {
   return (
     <div className="App">
       <header className="App-header">
         <Budget />
+        <Loans />
+        <Collateral />
       </header>
     </div>
   );

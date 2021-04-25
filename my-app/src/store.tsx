@@ -1,9 +1,8 @@
 import { createStore, configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 
-import budgetsReducer from './reducers'
-import collateralReducer from './reducers'
-import loansReducer from './reducers'
+import budgetsReducer from './reducers/budgetsReducer'
+import loansReducer from './reducers/loansReducer'
 
 const store = createStore(
   budgetsReducer

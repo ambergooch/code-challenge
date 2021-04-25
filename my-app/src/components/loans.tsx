@@ -1,21 +1,27 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { LoansState } from '../reducers/loansReducer'
 
-class Loans extends Component {
+const mapStateToProps = (state: LoansState) => ({
+  loans: state.loans
+})
 
-  state = {
-    balances: [
-      { title: "foo", id: 1 },
-      { title: "bar", id: 2 }
-    ]
-  }
+type ReduxType = LoansState & typeof mapStateToProps
+class Loans extends Component<ReduxType> {
 
   render() {
+    const { loans } = this.props
     return (
-      <ul>{this.state.balances.map(el => <li key={el.id}>{el.title}</li>)}</ul>
+      <ul>
+        {loans.map((loan: any) => 
+          <li key={loan.id}>{loan.title}</li>
+          // <li key={loan.id}>{loan.title}</li>
+        )}
+      </ul>
     )
-  }
-  
+  } 
 }
 
-export default Loans
+
+export default connect(mapStateToProps)(Loans)
 
