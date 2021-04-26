@@ -5,14 +5,6 @@ import reducer from './reducers'
 
 const store = createStore(reducer)
 
-// const store = configureStore({
-//   reducer: {
-//     budgets: budgetsReducer,
-//     // collateral: collateralReducer,
-//     // loans: loansReducer,
-//   }
-// })
-
 export type RootState = ReturnType<typeof store.getState>
 export default store
 
