@@ -1,14 +1,10 @@
-import { createStore, configureStore } from '@reduxjs/toolkit'
+import { createStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 
-import budgetsReducer from './reducers/budgetsReducer'
-import loansReducer from './reducers/loansReducer'
+import reducer from './reducers'
 
-const store = createStore(
-  budgetsReducer
-    // collateral: collateralReducer,
-    // loans: loansReducer,
-)
+const store = createStore(reducer)
+
 // const store = configureStore({
 //   reducer: {
 //     budgets: budgetsReducer,

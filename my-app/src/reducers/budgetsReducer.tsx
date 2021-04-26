@@ -1,5 +1,5 @@
 export interface BudgetsState {
-  budgets: Array<any>
+  budgets: any
 }
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
   ],
 }
 
-export type Action = { type: 'ADD_BUDGET_DATA', payload: object }
+export type Action = { type: 'ADD_BUDGET_DATA', payload: any }
 
 const budgetsReducer = (
   state: BudgetsState = initialState,

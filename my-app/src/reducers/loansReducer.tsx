@@ -1,14 +1,14 @@
 export interface LoansState {
-  loans: Array<any>
+  loans: any,
 }
 
 const initialState = {
   loans: [
-    {amount: 38934, date: '09/20/2020'}
+    {amount: 38934, date: '09/20/2020'},
   ],
-};
+} 
 
-export type Action = { type: 'ADD_LOAN_DATA', payload: object };
+export type Action = { type: 'ADD_LOAN_DATA', payload: any };
 
 const loansReducer = (
   state: LoansState = initialState,

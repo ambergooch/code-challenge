@@ -8,16 +8,15 @@ const mapStateToProps = (state: LoansState) => ({
 
 type ReduxType = LoansState & typeof mapStateToProps
 class Loans extends Component<ReduxType> {
-
   render() {
-    const { loans } = this.props
+    const { loans } = this.props.loans
     return (
       <ul>
         {loans.map((loan: any) => 
-          <li key={loan.id}>{loan.title}</li>
-          // <li key={loan.id}>{loan.title}</li>
+          <li key={loan.amount}>{loan.date}</li>
         )}
       </ul>
+      
     )
   } 
 }

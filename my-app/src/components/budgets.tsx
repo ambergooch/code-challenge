@@ -6,10 +6,10 @@ import { AgGridColumn, AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
-function Budget() {
+function Budgets() {
 
   const rowData = useSelector<BudgetsState, BudgetsState['budgets']>(
-    (state) => state.budgets
+    (state) => state.budgets.budgets
   )
 
   const currencyFormatter = (currency: number) => {
@@ -17,9 +17,9 @@ function Budget() {
     var formatted = sansDec.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return `$ ${formatted}`
   }
-
+console.log(rowData)
   return (
-    <div className='ag-theme-alpine' style={{ height: 300, width: 800 }}>
+    <div className='ag-theme-alpine' style={{ height: 300, width: 800, marginLeft: 30 }}>
       <h1>Project Budget</h1>
       <AgGridReact rowData={rowData}>
         <AgGridColumn 
@@ -45,4 +45,4 @@ function Budget() {
   )
 }
 
-export default Budget
+export default Budgets
