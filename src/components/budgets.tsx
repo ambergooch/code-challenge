@@ -26,7 +26,6 @@ function Budgets() {
 
   const onCellValueChanged = (params: any) => {
     const total_cost = calculateTotal(params)
-    // dispatch(updateUnits(params.data.units))
     dispatch(updateBudgetData(params.data.units, total_cost))
   }
 
@@ -34,7 +33,7 @@ function Budgets() {
     { headerName: 'Item/Task', field: 'item' },
     { headerName: 'Units', field: 'units', editable: true, onCellValueChanged: onCellValueChanged },
     { headerName: 'Cost Per Unit', field: 'cost_per_unit' },
-    { headerName: 'Total Cost', field: 'total_cost', valueGetter: calculateTotal },
+    { headerName: 'Total Cost', field: 'total_cost', editable: true, valueGetter: calculateTotal },
 ]
 
   return (
@@ -43,6 +42,7 @@ function Budgets() {
       <AgGridReact 
         rowData={budgets} 
         columnDefs={columnDefs}
+        editType = 'fullRow'
       />
     </div>
   )

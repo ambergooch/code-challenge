@@ -12,28 +12,22 @@ const initialState = {
   ],
 }
 
-export type Action = { type: 'UPDATE_BUDGET_DATA', payload: any }
-// export type Action = { type: 'UPDATE_UNITS', payload: any }
+export type Action = { type: any, payload: any }
 
 const budgetsReducer = (
   state: BudgetsState = initialState,
   action: Action
 ) => {
   if (action.type === 'UPDATE_BUDGET_DATA') {
-    console.log(state)
-    console.log(action.payload)
     return {
       ...state, 
       budgets: [
         ...state.budgets, 
       ],
-      // action.payload.units,
-      // action.payload.total_cost,
     }
   }
 
   if (action.type === 'UPDATE_UNITS') {
-    console.log(state)
     return {
       ...state, 
       units: action.payload,

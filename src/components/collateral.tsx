@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { CollateralState } from '../reducers/collateralReducer'
-import { addCollateralData } from '../actions'
 import { AgGridColumn, AgGridReact } from 'ag-grid-react'
 
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 function Collateral() {
-  
+
   const rowData = useSelector<CollateralState, CollateralState['collateral']>(
     (state) => state.collateral.collateral
   )
