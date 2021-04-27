@@ -1,19 +1,20 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { CollateralState } from '../reducers/collateralReducer'
+import { addCollateralData } from '../actions'
 import { AgGridColumn, AgGridReact } from 'ag-grid-react'
 
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 function Collateral() {
-
+  
   const rowData = useSelector<CollateralState, CollateralState['collateral']>(
     (state) => state.collateral.collateral
   )
 
   return (
-    <div className='ag-theme-alpine' style={{ height: 215, width: 1150, marginLeft: 30 }}>
+    <div className='ag-theme-alpine' style={{ height: 260, width: 1150, marginLeft: 30 }}>
       <h1>Collateralized Debt Obligation</h1>
       <AgGridReact rowData={rowData}>
         <AgGridColumn 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BudgetsState } from '../reducers/budgetsReducer'
-import { addBudgetData } from '../actions'
+import { updateUnits, updateBudgetData } from '../actions'
 import { AgGridReact } from 'ag-grid-react'
 
 import 'ag-grid-community/dist/styles/ag-grid.css'
@@ -10,10 +10,10 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 function Budgets() {
   const dispatch = useDispatch()
 
-  const rowData = useSelector<BudgetsState, BudgetsState['budgets']>(
+  const budgets = useSelector<BudgetsState, BudgetsState['budgets']>(
     (state) => state.budgets.budgets
   )
-console.log(rowData)
+
   const currencyFormatter = (currency: any) => {
     var sansDec = currency.toFixed(0);
     var formatted = sansDec.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -25,8 +25,9 @@ console.log(rowData)
   }
 
   const onCellValueChanged = (params: any) => {
-    console.log(params)
-    dispatch(addBudgetData(params.data))
+    const total_cost = calculateTotal(params)
+    // dispatch(updateUnits(params.data.units))
+    dispatch(updateBudgetData(params.data.units, total_cost))
   }
 
   const columnDefs =  [
@@ -40,7 +41,7 @@ console.log(rowData)
     <div className='ag-theme-alpine' style={{ height: 300, width: 800, marginLeft: 30 }}>
       <h1>Project Budget</h1>
       <AgGridReact 
-        rowData={rowData} 
+        rowData={budgets} 
         columnDefs={columnDefs}
       />
     </div>
